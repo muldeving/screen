@@ -8,6 +8,8 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.1)
 sep = "Package id 0', current=" 
 sep1 = '.'
 
+UPDATE_DELAY = 0.8
+
 def get_size(bytes):
     """
     Returns size of bytes in a nice format
@@ -21,10 +23,10 @@ io = psutil.net_io_counters()
 # extract the total bytes sent and received
 bytes_sent, bytes_recv = io.bytes_sent, io.bytes_recv
 while True:
-    ssd1 = Device('/dev/sdd')
-    ssd2 = Device('/dev/sdd')
+    ssd1 = Device('/dev/sdb')
+    ssd2 = Device('/dev/sdc')
     ssd3 = Device('/dev/sdd')
-    ssd4 = Device('/dev/sdd')
+    ssd4 = Device('/dev/sde')
     # get the stats again
     io_2 = psutil.net_io_counters()
     ssd1_temp = ssd1.temperature
