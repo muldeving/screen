@@ -1,13 +1,9 @@
 import psutil
-import time
-from datetime import datetime
+from datetime import *
 import serial 
+from pySMART import *
 
 arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.1)
-
-UPDATE_DELAY = 0.5 # in seconds
-
-
 
 sep = "Package id 0', current=" 
 sep1 = '.'
@@ -25,7 +21,6 @@ io = psutil.net_io_counters()
 # extract the total bytes sent and received
 bytes_sent, bytes_recv = io.bytes_sent, io.bytes_recv
 while True:
-    from pySMART import *
     ssd1 = Device('/dev/sdd')
     ssd2 = Device('/dev/sdd')
     ssd3 = Device('/dev/sdd')
